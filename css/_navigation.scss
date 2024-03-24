@@ -1,0 +1,49 @@
+header {
+	background-color: lightgray;
+	
+
+	ul {
+		margin: 0px;
+	}
+}
+
+#top-header {
+	//background-image: url('/images/Sci-Fi-City.jpg');
+}
+
+.header-image {
+	height: 600px;
+	width: auto;
+}
+
+.navbar {
+	background-color: black;
+
+	.nav-item {
+		padding: 4px 16px;
+
+		a{
+			font-weight: 600;
+			text-transform: uppercase;
+			font-size: 14px;
+			color: white;
+			transition: 0.3;
+
+		}
+
+		&:hover {
+			a {
+				color: #dd0000;
+			}
+		}
+	}
+}
+
+.navbar-collapse {
+	margin: auto;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
