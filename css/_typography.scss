@@ -5,19 +5,33 @@ h1,h2,h3,h4,h5,h6,p,li,a, div {
 }
 
 h1 {
-	font-size: 3.2rem;
+	font-size: 3.5rem;
 }
-
-
-header {
-	a {
-		// font-family: 'Orbitron', sans-serif;
-	}
-	
+h2 {
+	font-size: 2.3rem;
+}
+h3 {
+	font-size: 1.5rem;
+}
+p {
+	font-size: 1.2rem;
 }
 
 ol {
 	margin: 0px;
+}
+
+a{
+	:visited{
+		color:white;
+	}
+}
+
+.white {
+	color: white;
+	li {
+		color: white;
+	}
 }
 
 .color-light {
@@ -27,5 +41,11 @@ ol {
 .topper {
 	font-size: 1.3rem;
 	font-weight: 600;
-	color: white;
+	//color: white;
+	color: $primary;
+	text-transform: uppercase;
+}
+
+.special-text{
+	font-size: 1.4rem;
 }

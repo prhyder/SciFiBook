@@ -134,16 +134,39 @@ function _s_widgets_init() {
 }
 add_action( 'widgets_init', '_s_widgets_init' );
 
+
+/**
+ * Custom Fonts
+ */
+function enqueue_custom_fonts() {
+	if (!is_admin()){
+		// wp_register_style('Montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+		// wp_enqueue_style('Montserrat');
+
+		// wp_register_style('Orbitron', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
+		// wp_enqueue_style('Orbitron');
+	}
+}
+//add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
+
 /**
  * Enqueue scripts and styles.
  */
 function _s_scripts() {
-	wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_VERSION );   // alt shift downarrow
+	// Removing this style for now:
+	//wp_enqueue_style( '_s-style', get_stylesheet_uri(), array(), _S_VERSION );   // alt shift downarrow
 	wp_enqueue_style( '_s-main', get_template_directory_uri() . '/css/main.css');   // Change to main.min.css
 
-	wp_style_add_data( '_s-style', 'rtl', 'replace' );
+	// AOS 
+	wp_register_style('AOS', 'https://unpkg.com/aos@2.3.1/dist/aos.css');
+	wp_enqueue_style('AOS');
+	wp_enqueue_script('aos-js', get_template_directory_uri() . '/js/aos.js', array(), _S_VERSION, true);
+
+
+	//wp_style_add_data( '_s-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( '_s-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	wp_enqueue_script( 'site-js', get_template_directory_uri() . '/js/site.js', array(), _S_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -161,20 +184,6 @@ function load_javascript() {
 add_action('wp_enqueue_scripts', 'load_javascript');
 
 
-/**
- * Custom Fonts
- */
-function enqueue_custom_fonts() {
-	if (!is_admin()){
-		wp_register_style('Montserrat', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-		wp_enqueue_style('Montserrat');
-
-		wp_register_style('Orbitron', 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
-		wp_enqueue_style('Orbitron');
-		//wp_enqueue_style( '_s-main', get_template_directory_uri() . './css/main.css');
-	}
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_fonts');
 
 /**
  * Implement the Custom Header feature.
@@ -219,7 +228,9 @@ if ( class_exists( 'WooCommerce' ) ) {
 		),
 		'hierarchical' => true,   //true = pages
 		'public' => true,
-		'has_archive' => true,
+		'has_archive' => false,
+		'publicly_queryable'  => false,
+		'show_in_rest' => true,
 		'menu_icon' => 'dashicons-format-aside',
 		'supports' => array('title', 'editor', 'thumbnail'),
 		'rewrite' => array('slug' => 'hero')
@@ -228,4 +239,48 @@ if ( class_exists( 'WooCommerce' ) ) {
 	register_post_type('hero', $args);
  }
 add_action('init', 'hero_post_type');
+
+function homepage_section_post_type() {
+	$args = array (
+		'labels' => array(
+			'name' => 'Homepage Sections',
+			'singular_name' => 'Homepage Section',
+			'add_new' => _x('Add New', 'section'),
+			'add_new_item' => _('Add New Section'),
+			'new_item' => __('New Section'),
+		),
+		// 'capabilities' => array(
+		// 	'create_posts' => false, // Removes support for the "Add New" function ( use 'do_not_allow' instead of false for multisite set ups )
+		//   ),
+		'hierarchical' => true,   //true = pages
+		'public' => true,
+		'has_archive' => false,
+		'publicly_queryable'  => false,
+		'show_in_rest' => true,
+		'menu_icon' => 'dashicons-images-alt2',
+		//'supports' => array(),
+		// 'supports' => array('title', 'editor', 'thumbnail'),
+		'rewrite' => array('slug' => 'homepage-section'),
+		'taxonomies' => array('homepage_section_taxonomy')
+	);
+
+	register_post_type('homepage_section', $args);
+ }
+add_action('init', 'homepage_section_post_type');
+
+
+function homepage_section_taxonomy() {
+	$args = array (
+		'labels' => array(
+			'name' => 'Sections Taxonomy',
+			'singular_name' => 'Section Taxonomy'
+		),
+		'show_in_rest' => true,
+		'public' => true,
+		'hierarchical' => false    //true = can have a parent category. false = like a tag
+	);
+
+	register_taxonomy('sections', array('homepage_section'), $args);
+}
+add_action('init', 'homepage_section_taxonomy');
 

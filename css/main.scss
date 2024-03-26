@@ -44,7 +44,7 @@
 // @import "./bootstrap/scss/modal";
 // @import "./bootstrap/scss/tooltip";
 // @import "./bootstrap/scss/popover";
-// @import "./bootstrap/scss/carousel";
+@import "./bootstrap/scss/carousel";
 // @import "./bootstrap/scss/spinners";
 // @import "./bootstrap/scss/offcanvas";
 
@@ -58,6 +58,131 @@
 @import "typography";
 @import "navigation";
 
+body {
+	background-color: #0f151f;
+}
+
+//==== Buttons =====
+.btn {
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 10px 22px;
+	border-radius: 2px;
+	color: white;
+
+	&a:visited{
+		color:white;
+	}
+
+	a:visited{
+		color:white;
+	}
+}
+
+.btn-primary {
+    //@include button-variant($sitePrimary, darken($sitePrimary, 7.5%), white);
+    @include button-variant($accentColor, darken($accentColor, 7.5%), white);
+
+}
+
+.btn-outline-primary {
+    @include button-outline-variant($accentColor, $accentColor, lighten($accentColor,5%), $accentColor);
+
+}
+
+//====== Colors ======
+.bg-darkBlue {
+	//background-color: $secondaryDark;
+	background-color: #0f151f;
+}
+
+//====== Forms ======
+input[type=text],input[type=email]{
+	//ackground-color: red !important;
+	height: 46px;
+	border-radius: 1px;
+	border-color: rgb(65, 65, 65);
+	// width:33%;
+	// min-width: 250px;
+
+	&:focus{
+		border-color: aqua;
+	}
+  }
+  textarea {
+	border-radius: 1px !important;
+	border-color: rgb(65, 65, 65);
+  }
+  .form-control:focus {
+	//border-color: rgb(165, 17, 17);
+  }
+  .input:focus {
+	outline: none !important;
+	//border:1px solid red;
+	//box-shadow: 0 0 10px red;
+}
+textarea {
+	resize: none;
+}
+
+// Styles for Contact Form 7
+.wpcf7-response-output {
+	margin: 1.5rem 0;
+}
+
+
+//====== Subscribe ======
+#subscribe {
+	border-top: 2px solid $accentColor;
+	border-bottom: 2px solid $accentColor;
+
+	button {
+		//min-width: 225px;
+		white-space: no-wrap;
+		width: 100%;
+	}
+
+	form {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	@include media-breakpoint-up(lg){
+		form {
+			padding-left: 5rem;
+			padding-right: 5rem;
+		}
+	}
+
+	@include media-breakpoint-up(xl){
+		form {
+			padding-left: 7rem;
+			padding-right: 7rem;
+		}
+	}
+}
+
+//======= Pages ======
+.page {
+	margin: 0 0 0em;
+}
+
+
+//====== Carousel ======
+
+.carousel-item {
+    transition: transform .4s ease-in-out;
+}
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+transition: opacity 0s .4s;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
 
 //====== Hero =======
 
@@ -67,4 +192,139 @@
 	h1 {
 		//color: $primary;
 	}
+	h2 {
+		font-size: 1.7rem;
+	}
 }
+
+
+//====== Reviews ======
+#reviews {
+	.reviews-col {
+		padding: 1rem 3rem;
+	}
+
+	@include media-breakpoint-up(md){
+		.reviews-col {
+			padding: 1rem 8rem;
+		}
+	}
+
+	h2{
+		font-size: 1.4rem;
+	}
+	
+	h3 {
+		font-weight: 600;
+	}
+	.reviewer-name {
+		font-weight: 600;
+		margin-bottom: 0px;
+	} 
+}
+
+//====== Book Details ======
+#book {
+
+	img {
+		margin: 0.5rem;
+	}
+
+	@include media-breakpoint-up(md){
+		img {
+			//padding: 5rem;
+		}
+		.details {
+			padding-right: 5rem;
+		}
+	}
+
+	img {
+		border: 1px solid rgba($bodyTextColorLight, .5);
+		max-height: 500px;
+		width: auto;
+	}
+
+	.title {
+		padding-top: 1rem;
+	}
+
+	@include media-breakpoint-up(sm){
+		.details {
+			padding-left: 5rem;
+			padding-top: 3rem;
+		}
+	}
+
+	.details {
+		padding: 3rem;
+		
+	}
+}
+
+//====== Contact ======
+#contact {
+	.the-image {
+		//background-size: cover;
+				// width: 100%;
+				// height: 100%;
+				// object-fit: contain;
+
+				background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+	object-fit:cover;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+	}
+	image-col.col-lg-5 {
+		max-width: 100%;
+		height: 80vh;
+		padding: 0 0 0 0;
+	}
+	@include media-breakpoint-down(lg){
+		.the-image{
+			height: 50vh;
+			max-height: 300px;
+		}
+	}
+
+	.container-fluid {
+		padding: 0 0 0 0;
+	}
+}
+
+//===== About =====
+#about {
+	.topper {
+		//color: $bodyTextColor;
+	}
+}
+
+//====== Footer ======
+footer {
+	font-size: 1rem;
+	background-color: black;
+
+	a {
+		text-decoration: none;
+	}
+
+	.follow {
+		font-size: 1rem;
+	}
+
+	.nav-link {
+		font-size: 1.2rem;
+		&:hover {
+			color: $accentColor;
+		}
+	}
+
+	.footer-text-item {
+		font-size: 1rem;
+		padding: 1rem .3rem;
+	}
+}
+
