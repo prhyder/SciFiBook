@@ -28,22 +28,10 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 
-	<!-- Top Section -->
-	<section id="top-header" class="d-flex flex-column justify-content-center align-middle align-center text-center mx-auto" style="display:none !important;">
-		
-		<div class="container d-flex flex-column justify-content-center align-middle align-center text-center mx-auto">
-			<div class="row justify-content-center">
-				<div class="col-12 text-center mx-auto d-flex justify-content-center">
-					<p class="text-center mx-auto d-flex justify-content-center">Hero image</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<header>
 		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" >
 			<div class="container">
-				<a class="navbar-brand"  href="#page-top"><img width="200px" src="<?php echo get_template_directory_uri(); ?>/images/John-Miller-Author-Logo.png"></a>
+				<a class="navbar-brand" aria-label="Scroll to Page Top" href="#page-top"><img alt="John Stephens Author Logo" src="<?php echo get_template_directory_uri(); ?>/images/John-Stephens-Author-Logo.png"></a>
 				
 				<button  class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span> 
@@ -55,14 +43,15 @@
 				-->
 				<div class="navbar-collapse collapse" id="navbarResponsive" >
 					<ul class="navbar-nav text-uppercase  mx-auto py-4 py-lg-0">
-						<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
 						<li class="nav-item"><a class="nav-link" href="#book">The Book</a></li>
 						<li class="nav-item"><a class="nav-link" href="#about">About the Author</a></li>
 						<li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
 					</ul>
+					<a href="#subscribe" class="action-button mobile btn-primary btn text-center mx-auto">Subscribe Now</a>
 				</div>
+				<a href="#subscribe" class="action-button desktop btn-primary btn text-center mx-auto">Subscribe Now</a>
 
-				<a href="#subscribe" class="btn-primary btn">Subscribe Now</a>
+				
 			</div>
 		</nav> 
 	</header>

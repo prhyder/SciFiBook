@@ -136,6 +136,26 @@ add_action( 'widgets_init', '_s_widgets_init' );
 
 
 /**
+ * Remove editor from pages.
+ */
+function my_remove_editor_from_post_type() {
+	remove_post_type_support( 'page', 'editor' );
+}
+add_action('init', 'my_remove_editor_from_post_type');
+
+/**
+ * Remove post type for non-admin.
+ */
+function remove_posts_menu() {
+	$user = wp_get_current_user();
+	if ($user->ID!=1) { // Is not admin
+		remove_menu_page('edit.php');
+	}
+}
+add_action('admin_menu', 'remove_posts_menu');
+
+
+/**
  * Custom Fonts
  */
 function enqueue_custom_fonts() {

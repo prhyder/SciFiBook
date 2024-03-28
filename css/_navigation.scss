@@ -11,11 +11,52 @@ header {
 	width: auto;
 }
 
+.navbar-toggler{
+	border: 0px white solid;
+}
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+	outline: none;
+	box-shadow: none;
+}
+
 .navbar, footer {
 	background-color: black;
 
+	.navbar-brand {
+		img {
+			width: 200px;
+			@include media-breakpoint-up(lg){
+				width: 230px;
+			}
+		}
+	}
+
+	@include media-breakpoint-down(lg){
+		.action-button {
+			margin-bottom: 12px;
+		}
+	}
+
+	.action-button.mobile{
+		display: block;
+
+		@include media-breakpoint-up(lg){
+			display: none;
+		}
+	}
+
+	.action-button.desktop{
+		display: none;
+
+		@include media-breakpoint-up(lg){
+			display: block;
+		}
+	}
+
 	.nav-item {
-		padding: 16px 16px;
+		padding: 6px 16px;
 
 		a{
 			font-weight: 600;
@@ -28,8 +69,17 @@ header {
 
 		&:hover {
 			a {
-				color: #dd0000;
+				color: $accentColor;
 			}
+		}
+	}
+
+	@include media-breakpoint-up(xl){
+		.nav-item {
+			padding: 16px 16px;
+		}
+		.action-button {
+			margin-bottom: unset;
 		}
 	}
 }
