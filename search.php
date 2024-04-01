@@ -10,8 +10,15 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main">
+		<?php
+			get_template_part('template-parts/header', 'interior', '');
+		?>
 
+		<div class="container interior-page dark">
+			<div class="row">
+
+		<!-- Activate this if the site contains a blog -->
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
@@ -46,8 +53,10 @@ get_header();
 		endif;
 		?>
 
+	</div>
+	</div>
+
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

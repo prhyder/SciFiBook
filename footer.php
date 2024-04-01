@@ -113,38 +113,18 @@
 <?php wp_footer(); ?>
 
 <style>
-		#top-header {
-			/* background-image: linear-gradient(to bottom, #38464eaa, #263036aa),
-				url("<?php //echo get_template_directory_uri(); ?>/images/Sci-Fi-City.jpg");
-				background-size: cover;
 
-				background-image: 
-				url("<?php //echo get_template_directory_uri(); ?>/images/Explorer-Spacesuit-Alien-Planet.jpg");
-				background-size: cover;
-				object-fit: contain;
-				background-position: 50% 75%;
-
-			height: 500px; */
-		}
-
-		#hero {
+		#hero, #int-hero {
 				/* background-image: linear-gradient(to bottom, #0312389f, #0312389f),
-				url("<?php echo get_template_directory_uri(); ?>/images/Explorer-Spacesuit-Alien-Planet.jpg"); */
+				url("<?php //echo get_template_directory_uri(); ?>/images/Explorer-Spacesuit-Alien-Planet.jpg"); */
 				
-				background-image: linear-gradient(to bottom, #111a33dc, #182035dc),
+				/* background-image: linear-gradient(to bottom, #111a33dc, #182035dc),
+				url("<?php //echo get_template_directory_uri(); ?>/images/Explorer-Spacesuit-Alien-Planet.jpg"); */
+				background-image: linear-gradient(to bottom, #00000099, #00000099),
 				url("<?php echo get_template_directory_uri(); ?>/images/Explorer-Spacesuit-Alien-Planet.jpg");
 				background-size: cover;
 				object-fit: contain;
 				background-position: 50% 75%;
-
-		}
-
-		#book__ {
-			/* background-image: linear-gradient(to bottom, #0f151fee, #0f151fee),
-				url("<?php //echo get_template_directory_uri(); ?>/images/Sci-Fi-City.jpg");
-				background-size: cover;
-				object-fit: contain;
-				background-position: 50% 75%; */
 		}
 
 		#subscribe {
@@ -154,8 +134,6 @@
 				object-fit: contain;
 				background-position: 50% 75%;
 		}
-
-		
 	</style>
 
 <script>
